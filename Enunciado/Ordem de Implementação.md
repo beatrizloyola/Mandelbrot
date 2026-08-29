@@ -16,11 +16,11 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Teste isolado: comparar saída da função para poucos pontos calculados à mão
 
 ## 🖼️ Fase 3 — Implementação Serial + escrita do arquivo
-- [ ] Implementação serial completa (duplo loop sobre largura x altura)
-- [ ] Escrita do arquivo `.pgm` sem cabeçalho: 1 valor por pixel, separados por espaço, 1 linha por linha da imagem
-- [ ] Medição de tempo de execução do cálculo (ex: `clock_gettime`)
-- [ ] Gravar tempo em `times.txt`
-- [ ] Nomeação correta: `mandelbrot_<login>_serial.pgm`
+- [X] Implementação serial completa (duplo loop sobre largura x altura)
+- [X] Escrita do arquivo `.pgm` sem cabeçalho: 1 valor por pixel, separados por espaço, 1 linha por linha da imagem
+- [X] Medição de tempo de execução do cálculo (ex: `clock_gettime`)
+- [X] Gravar tempo em `times.txt`
+- [X] Nomeação correta: `mandelbrot_<login>_serial.pgm`
 
 ## 🚀 Fase 4 — Implementação OpenMP
 - [ ] Paralelizar o loop de cálculo dos pontos com `#pragma omp parallel for`
