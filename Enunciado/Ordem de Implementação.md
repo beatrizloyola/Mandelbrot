@@ -1,0 +1,65 @@
+# Ordem de Implementação — Conjunto de Mandelbrot
+
+Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concluir.
+
+## 🧱 Fase 1 — Esqueleto e parsing de argumentos
+- [ ] Estrutura do projeto: `src/`, `Makefile`, `.gitignore`
+- [ ] Parsing de `argc/argv`: `mandelbrot [largura] [altura] [max_iteracoes] [num_threads]`
+- [ ] Validação: número correto de argumentos (senão erro + saída)
+- [ ] Validação: largura, altura, max_iteracoes, num_threads > 0 e numéricos
+- [ ] Mensagens de erro coerentes via stderr, programa não imprime nada em stdout no fluxo normal
+
+## 🧮 Fase 2 — Núcleo matemático do Mandelbrot
+- [ ] Função de mapeamento pixel → ponto complexo c (região real [-2.0,1.0], imaginária [-1.5,1.5])
+- [ ] Função de iteração: z0=0, z_novo = z² + c, critério de escape (|z|>2) até max_iteracoes
+- [ ] Normalização do nº de iterações para intensidade 0–255
+- [ ] Teste isolado: comparar saída da função para poucos pontos calculados à mão
+
+## 🖼️ Fase 3 — Implementação Serial + escrita do arquivo
+- [ ] Implementação serial completa (duplo loop sobre largura x altura)
+- [ ] Escrita do arquivo `.pgm` sem cabeçalho: 1 valor por pixel, separados por espaço, 1 linha por linha da imagem
+- [ ] Medição de tempo de execução do cálculo (ex: `clock_gettime`)
+- [ ] Gravar tempo em `times.txt`
+- [ ] Nomeação correta: `mandelbrot_<login>_serial.pgm`
+
+## 🚀 Fase 4 — Implementação OpenMP
+- [ ] Paralelizar o loop de cálculo dos pontos com `#pragma omp parallel for`
+- [ ] Garantir que só o trecho de CPU-intensivo (cálculo) está paralelizado
+- [ ] Medir tempo e gravar em `times.txt`
+- [ ] Gerar `mandelbrot_<login>_openmp.pgm` e conferir que é idêntico ao serial
+
+## 🧵 Fase 5 — Pthreads 1 (divisão estática por blocos)
+- [ ] Dividir a imagem em blocos contíguos de linhas, um bloco por thread (`num_threads`)
+- [ ] Criar/join das threads, cada thread calcula seu bloco e escreve no buffer compartilhado
+- [ ] Medir tempo e gravar em `times.txt`
+- [ ] Gerar `mandelbrot_<login>_pthreads1.pgm` e conferir identidade com serial
+
+## 🧵 Fase 6 — Pthreads 2 (estratégia distinta de divisão)
+- [ ] Escolher estratégia diferente da Fase 5 (ex: round-robin de linhas, ou fila dinâmica de trabalho/work-stealing)
+- [ ] Implementar sincronização necessária (mutex se houver fila compartilhada)
+- [ ] Medir tempo e gravar em `times.txt`
+- [ ] Gerar `mandelbrot_<login>_pthreads2.pgm` e conferir identidade com serial
+
+## 📄 Fase 7 — Consolidação do times.txt
+- [ ] Garantir que `times.txt` contém os 4 tempos (serial, openmp, pthreads1, pthreads2) num formato único e claro
+- [ ] Conferir que nenhuma implementação escreve nada em stdout
+
+## 🛡️ Fase 8 — Revisão de erros e robustez
+- [ ] Erro: número incorreto de argumentos
+- [ ] Erro: parâmetros inválidos (largura/altura/max_iteracoes/num_threads)
+- [ ] Erro: falha na criação do arquivo de saída
+- [ ] Erro: falha na alocação de memória
+- [ ] Erro: falha na criação de threads
+- [ ] Testar com casos extremos (threads=1, imagem 1x1, max_iteracoes=0, etc.)
+
+## ✅ Fase 9 — Verificação de consistência entre implementações
+- [ ] Script/comando para comparar os 4 `.pgm` byte a byte (`diff`)
+- [ ] Rodar com diferentes tamanhos e num_threads, confirmar sempre idênticos
+- [ ] Registrar evidências (prints/logs) para o relatório
+
+## 📦 Fase 10 — Empacotamento e entrega
+- [ ] Makefile (build + clean)
+- [ ] Commits atômicos no Github, link incluído no relatório
+- [ ] Relatório em PDF seguindo o Guia de Relatórios da disciplina (dificuldades, limitações, evidências de teste)
+- [ ] Diretório e .tar nomeados corretamente com o login (iniciais do e-mail)
+- [ ] Conferir nomes: `login.pdf`, `login.tar`, diretório `login/`
