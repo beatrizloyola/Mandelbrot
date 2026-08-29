@@ -1,5 +1,6 @@
 mandelbrot
-mandelbrot_blgv_serial.pgm
 times.txt
+mandelbrot_blgv_serial.pgm
 mandelbrot_blgv_openmp.pgm
 mandelbrot_blgv_pthreads1.pgm
+mandelbrot_blgv_pthreads2.pgm

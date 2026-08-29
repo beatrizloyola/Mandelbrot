@@ -220,3 +220,79 @@ int executar_pthreads1(int largura, int altura, int max_iteracoes, int num_threa
     return 0;
 }
 
+void *calcular_fila(void *arg) {
+    argumentos_fila *args = (argumentos_fila *)arg;
+
+    while (1) {
+        pthread_mutex_lock(args->mutex);
+        int linha_atual = *(args->proxima_linha);
+        (*(args->proxima_linha))++;
+        pthread_mutex_unlock(args->mutex);
+
+        if (linha_atual >= args->altura)
+            break;
+
+        for (int x = 0; x < args->largura; x++) {
+            double real, imag;
+            pixel_para_complexo(x, linha_atual, args->largura, args->altura, &real, &imag);
+            int num_iteracoes = iterar(real, imag, args->max_iteracoes);
+            int intensidade = normalizar(num_iteracoes, args->max_iteracoes);
+            args->buffer[linha_atual * args->largura + x] = intensidade;
+        }
+    }
+
+    return NULL;
+}
+
+int executar_pthreads2(int largura, int altura, int max_iteracoes, int num_threads){
+    struct timespec inicio, fim;
+    int *buffer = malloc(largura * altura * sizeof(int));
+
+    if (buffer == NULL){
+        fprintf(stderr, "Erro na alocação de memória\n");
+        return -1;
+    }
+
+    pthread_t threads[num_threads];
+    argumentos_fila args[num_threads];
+
+    int proxima_linha = 0;
+    pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
+    clock_gettime(CLOCK_MONOTONIC, &inicio);
+
+    for (int i = 0; i < num_threads; i++) {
+
+        args[i].proxima_linha = &proxima_linha;
+        args[i].mutex = &mutex;
+        args[i].largura = largura;
+        args[i].altura = altura;
+        args[i].max_iteracoes = max_iteracoes;
+        args[i].buffer = buffer;
+
+        if (pthread_create(&threads[i], NULL, calcular_fila, &args[i]) != 0) {
+            fprintf(stderr, "Erro na criação das threads\n");
+            free(buffer);
+            return -1;
+        }
+    }
+
+    for (int i = 0; i < num_threads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &fim);
+    double tempo = (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
+
+    if (escrever_pgm(buffer, largura, altura, "mandelbrot_blgv_pthreads2.pgm") != 0){
+        free(buffer);
+        return -1;
+    }
+    if (escrever_tempo("Pthreads2", tempo) != 0){
+        free(buffer);
+        return -1;
+    }
+
+    free(buffer);
+    return 0;
+}

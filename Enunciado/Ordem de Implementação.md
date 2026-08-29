@@ -35,10 +35,10 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Gerar `mandelbrot_<login>_pthreads1.pgm` e conferir identidade com serial
 
 ## 🧵 Fase 6 — Pthreads 2 (estratégia distinta de divisão)
-- [ ] Escolher estratégia diferente da Fase 5 (ex: round-robin de linhas, ou fila dinâmica de trabalho/work-stealing)
-- [ ] Implementar sincronização necessária (mutex se houver fila compartilhada)
-- [ ] Medir tempo e gravar em `times.txt`
-- [ ] Gerar `mandelbrot_<login>_pthreads2.pgm` e conferir identidade com serial
+- [X] Escolher estratégia diferente da Fase 5 (ex: round-robin de linhas, ou fila dinâmica de trabalho/work-stealing)
+- [X] Implementar sincronização necessária (mutex se houver fila compartilhada)
+- [X] Medir tempo e gravar em `times.txt`
+- [X] Gerar `mandelbrot_<login>_pthreads2.pgm` e conferir identidade com serial
 
 ## 📄 Fase 7 — Consolidação do times.txt
 - [ ] Garantir que `times.txt` contém os 4 tempos (serial, openmp, pthreads1, pthreads2) num formato único e claro
