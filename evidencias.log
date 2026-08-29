@@ -85,3 +85,35 @@ Try: sudo apt install <deb name>
 exit
 
 Script done on 2026-08-29 14:54:05-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-08-29 20:56:52-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="139" LINES="10"]
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [7m./mandelbrot 300 300 1000 4 > /dev/null 2>&1[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"[27m
+[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./mandelbrot 300 300 1000 4 > /dev/null 2>&1
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"
+[A
+[?2004lserial == openmp OK
+serial == pthreads1 OK
+serial == pthreads2 OK
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ make clean && make
+[?2004lrm -f mandelbrot *.o *.pgm times.txt
+gcc -Wall -Wextra -O2 -pthread -fopenmp -o mandelbrot main.c mandelbrot.c -lm
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ ^?[7m./mandelbrot 300 300 1000 4 > /dev/null 2>&1[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"[27m
+[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./mandelbrot 300 300 1000 4 > /dev/null 2>&1
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[A[A[28Pmake clean && make
+[K
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K^?[K[7m./mandelbrot 100 100 500[27m
+[7m./mandelbrot 100 100 500 4 4[27m
+[7m./mandelbrot abc 100 500 4[27m
+[7m./mandelbrot 100 xyz 500 4[27m
+[7m./mandelbrot 100 100 abc 4[27m
+[7m./mandelbrot 100 100 500 abc[27m[A[A[A[A[A]0;loyola@loyola-dell-g15: ~/Documents/Mandel

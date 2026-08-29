@@ -45,21 +45,21 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Conferir que nenhuma implementação escreve nada em stdout
 
 ## 🛡️ Fase 8 — Revisão de erros e robustez
-- [ ] Erro: número incorreto de argumentos
-- [ ] Erro: parâmetros inválidos (largura/altura/max_iteracoes/num_threads)
-- [ ] Erro: falha na criação do arquivo de saída
-- [ ] Erro: falha na alocação de memória
-- [ ] Erro: falha na criação de threads
-- [ ] Testar com casos extremos (threads=1, imagem 1x1, max_iteracoes=0, etc.)
+- [X] Erro: número incorreto de argumentos
+- [X] Erro: parâmetros inválidos (largura/altura/max_iteracoes/num_threads)
+- [X] Erro: falha na criação do arquivo de saída
+- [X] Erro: falha na alocação de memória
+- [X] Erro: falha na criação de threads
+- [X] Testar com casos extremos (threads=1, imagem 1x1, max_iteracoes=0, etc.)
 
 ## ✅ Fase 9 — Verificação de consistência entre implementações
-- [ ] Script/comando para comparar os 4 `.pgm` byte a byte (`diff`)
-- [ ] Rodar com diferentes tamanhos e num_threads, confirmar sempre idênticos
-- [ ] Registrar evidências (prints/logs) para o relatório
+- [X] Script/comando para comparar os 4 `.pgm` byte a byte (`diff`)
+- [X] Rodar com diferentes tamanhos e num_threads, confirmar sempre idênticos
+- [X] Registrar evidências (prints/logs) para o relatório
 
 ## 📦 Fase 10 — Empacotamento e entrega
-- [ ] Makefile (build + clean)
-- [ ] Commits atômicos no Github, link incluído no relatório
+- [X] Makefile (build + clean)
+- [X] Commits atômicos no Github, link incluído no relatório
 - [ ] Relatório em PDF seguindo o Guia de Relatórios da disciplina (dificuldades, limitações, evidências de teste)
 - [ ] Diretório e .tar nomeados corretamente com o login (iniciais do e-mail)
 - [ ] Conferir nomes: `login.pdf`, `login.tar`, diretório `login/`
