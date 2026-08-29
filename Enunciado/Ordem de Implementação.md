@@ -23,10 +23,10 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Nomeação correta: `mandelbrot_<login>_serial.pgm`
 
 ## 🚀 Fase 4 — Implementação OpenMP
-- [ ] Paralelizar o loop de cálculo dos pontos com `#pragma omp parallel for`
-- [ ] Garantir que só o trecho de CPU-intensivo (cálculo) está paralelizado
-- [ ] Medir tempo e gravar em `times.txt`
-- [ ] Gerar `mandelbrot_<login>_openmp.pgm` e conferir que é idêntico ao serial
+- [X] Paralelizar o loop de cálculo dos pontos com `#pragma omp parallel for`
+- [X] Garantir que só o trecho de CPU-intensivo (cálculo) está paralelizado
+- [X] Medir tempo e gravar em `times.txt`
+- [X] Gerar `mandelbrot_<login>_openmp.pgm` e conferir que é idêntico ao serial
 
 ## 🧵 Fase 5 — Pthreads 1 (divisão estática por blocos)
 - [ ] Dividir a imagem em blocos contíguos de linhas, um bloco por thread (`num_threads`)

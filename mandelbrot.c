@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <omp.h>
 
 void pixel_para_complexo(int x, int y, int largura, int altura, double *real, double *imag) {
     *real = -2.0 + (x / (double)(largura - 1)) * 3.0;
@@ -104,4 +105,43 @@ int executar_serial(int largura, int altura, int max_iteracoes){
 
     free(buffer);
     return 0;
+}
+
+int executar_openmp(int largura, int altura, int max_iteracoes, int num_threads){
+    int x, y;
+    struct timespec inicio, fim;
+    int *buffer = malloc(largura * altura * sizeof(int));
+
+    if (buffer == NULL){
+        fprintf(stderr, "Erro na alocação de memória\n");
+        return -1;
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &inicio);
+    #pragma omp parallel for num_threads(num_threads)
+    for (y = 0; y < altura; y++) {
+        for (x = 0; x < largura; x++) {
+            double real, imag;
+            pixel_para_complexo(x, y, largura, altura, &real, &imag);
+            int num_iteracoes = iterar(real, imag, max_iteracoes);
+            int intensidade = normalizar(num_iteracoes, max_iteracoes);
+            buffer[y * largura + x] = intensidade;
+        }
+    }
+    clock_gettime(CLOCK_MONOTONIC, &fim);
+
+    double tempo = (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
+    if (escrever_pgm(buffer, largura, altura, "mandelbrot_blgv_openmp.pgm") != 0){
+        free(buffer);
+        return -1;
+    }
+
+    if(escrever_tempo("OpenMP", tempo) != 0){
+        free(buffer);
+        return -1;
+    }
+
+    free(buffer);
+    return 0;
+
 }

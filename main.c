@@ -34,16 +34,21 @@ int main (int argc, char *argv[]){
         exit(1);
     }
     
-    // Teste serial
-    int resultado = executar_serial((int)largura, (int)altura, (int)max_iteracoes);
+    int resultado;
 
+    // Teste Serial
+    resultado = executar_serial((int)largura, (int)altura, (int)max_iteracoes);
     if (resultado != 0) {
         fprintf(stderr, "Erro na execução serial\n");
         return 1;
     }
 
-    return 0;
-
+    // Teste OpenMP
+    resultado = executar_openmp((int)largura, (int)altura, (int)max_iteracoes, (int)num_threads);
+    if (resultado != 0) {
+        fprintf(stderr, "Erro na execução serial\n");
+        return 1;
+    }
 
     return 0;
 }
