@@ -3,11 +3,11 @@
 Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concluir.
 
 ## 🧱 Fase 1 — Esqueleto e parsing de argumentos
-- [ ] Estrutura do projeto: `src/`, `Makefile`, `.gitignore`
-- [ ] Parsing de `argc/argv`: `mandelbrot [largura] [altura] [max_iteracoes] [num_threads]`
-- [ ] Validação: número correto de argumentos (senão erro + saída)
-- [ ] Validação: largura, altura, max_iteracoes, num_threads > 0 e numéricos
-- [ ] Mensagens de erro coerentes via stderr, programa não imprime nada em stdout no fluxo normal
+- [X] Estrutura do projeto: `src/`, `Makefile`, `.gitignore`
+- [X] Parsing de `argc/argv`: `mandelbrot [largura] [altura] [max_iteracoes] [num_threads]`
+- [X] Validação: número correto de argumentos (senão erro + saída)
+- [X] Validação: largura, altura, max_iteracoes, num_threads > 0 e numéricos
+- [X] Mensagens de erro coerentes via stderr, programa não imprime nada em stdout no fluxo normal
 
 ## 🧮 Fase 2 — Núcleo matemático do Mandelbrot
 - [ ] Função de mapeamento pixel → ponto complexo c (região real [-2.0,1.0], imaginária [-1.5,1.5])
