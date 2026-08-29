@@ -29,10 +29,10 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Gerar `mandelbrot_<login>_openmp.pgm` e conferir que é idêntico ao serial
 
 ## 🧵 Fase 5 — Pthreads 1 (divisão estática por blocos)
-- [ ] Dividir a imagem em blocos contíguos de linhas, um bloco por thread (`num_threads`)
-- [ ] Criar/join das threads, cada thread calcula seu bloco e escreve no buffer compartilhado
-- [ ] Medir tempo e gravar em `times.txt`
-- [ ] Gerar `mandelbrot_<login>_pthreads1.pgm` e conferir identidade com serial
+- [X] Dividir a imagem em blocos contíguos de linhas, um bloco por thread (`num_threads`)
+- [X] Criar/join das threads, cada thread calcula seu bloco e escreve no buffer compartilhado
+- [X] Medir tempo e gravar em `times.txt`
+- [X] Gerar `mandelbrot_<login>_pthreads1.pgm` e conferir identidade com serial
 
 ## 🧵 Fase 6 — Pthreads 2 (estratégia distinta de divisão)
 - [ ] Escolher estratégia diferente da Fase 5 (ex: round-robin de linhas, ou fila dinâmica de trabalho/work-stealing)

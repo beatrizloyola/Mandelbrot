@@ -4,6 +4,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <pthread.h>
+#include "mandelbrot.h"
 
 void pixel_para_complexo(int x, int y, int largura, int altura, double *real, double *imag) {
     *real = -2.0 + (x / (double)(largura - 1)) * 3.0;
@@ -143,5 +145,78 @@ int executar_openmp(int largura, int altura, int max_iteracoes, int num_threads)
 
     free(buffer);
     return 0;
-
 }
+
+void *calcular_bloco(void *arg) {
+    argumentos_thread *args = (argumentos_thread *)arg;
+
+    for (int y = args->linha_inicio; y < args->linha_fim; y++) {
+        for (int x = 0; x < args->largura; x++) {
+            double real, imag;
+            pixel_para_complexo(x, y, args->largura, args->altura, &real, &imag);
+            int num_iteracoes = iterar(real, imag, args->max_iteracoes);
+            int intensidade = normalizar(num_iteracoes, args->max_iteracoes);
+            args->buffer[y * args->largura + x] = intensidade;
+        }
+    }
+
+    return NULL;
+}
+
+int executar_pthreads1(int largura, int altura, int max_iteracoes, int num_threads){
+    struct timespec inicio, fim;
+    int *buffer = malloc(largura * altura * sizeof(int));
+
+    if (buffer == NULL){
+        fprintf(stderr, "Erro na alocação de memória\n");
+        return -1;
+    }
+
+    pthread_t threads[num_threads];
+    argumentos_thread args[num_threads];
+
+    int linhas_por_thread = altura / num_threads;
+    int resto = altura % num_threads;
+
+    clock_gettime(CLOCK_MONOTONIC, &inicio);
+
+    int linha_atual = 0;
+    for (int i = 0; i < num_threads; i++) {
+        int tamanho_bloco = linhas_por_thread + (i < resto ? 1 : 0);
+
+        args[i].linha_inicio = linha_atual;
+        args[i].linha_fim = linha_atual + tamanho_bloco;
+        args[i].largura = largura;
+        args[i].altura = altura;
+        args[i].max_iteracoes = max_iteracoes;
+        args[i].buffer = buffer;
+
+        if (pthread_create(&threads[i], NULL, calcular_bloco, &args[i]) != 0) {
+            fprintf(stderr, "Erro na criação das threads\n");
+            free(buffer);
+            return -1;
+        }
+
+        linha_atual += tamanho_bloco;
+    }
+
+    for (int i = 0; i < num_threads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &fim);
+    double tempo = (fim.tv_sec - inicio.tv_sec) + (fim.tv_nsec - inicio.tv_nsec) / 1e9;
+
+    if (escrever_pgm(buffer, largura, altura, "mandelbrot_blgv_pthreads1.pgm") != 0){
+        free(buffer);
+        return -1;
+    }
+    if (escrever_tempo("Pthreads1", tempo) != 0){
+        free(buffer);
+        return -1;
+    }
+
+    free(buffer);
+    return 0;
+}
+

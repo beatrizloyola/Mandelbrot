@@ -50,5 +50,13 @@ int main (int argc, char *argv[]){
         return 1;
     }
 
+    // Teste Pthreads 1
+
+    resultado = executar_pthreads1((int)largura, (int)altura, (int)max_iteracoes, (int)num_threads);
+     if (resultado != 0) {
+        fprintf(stderr, "Erro na execução Pthreads 1\n");
+        return 1;
+    }
+
     return 0;
 }

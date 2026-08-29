@@ -2,3 +2,4 @@ mandelbrot
 mandelbrot_blgv_serial.pgm
 times.txt
 mandelbrot_blgv_openmp.pgm
+mandelbrot_blgv_pthreads1.pgm
