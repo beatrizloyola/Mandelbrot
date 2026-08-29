@@ -67,7 +67,7 @@ int escrever_tempo(const char *rotulo, double tempo){
         return -1;
     }
 
-    fprintf(log_tempo, "%s: %.6f segundos\n", rotulo, tempo);
+    fprintf(log_tempo, "%s: %.6fs\n", rotulo, tempo);
     fclose(log_tempo);
     return 0;
 }

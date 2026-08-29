@@ -41,8 +41,8 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Gerar `mandelbrot_<login>_pthreads2.pgm` e conferir identidade com serial
 
 ## 📄 Fase 7 — Consolidação do times.txt
-- [ ] Garantir que `times.txt` contém os 4 tempos (serial, openmp, pthreads1, pthreads2) num formato único e claro
-- [ ] Conferir que nenhuma implementação escreve nada em stdout
+- [X] Garantir que `times.txt` contém os 4 tempos (serial, openmp, pthreads1, pthreads2) num formato único e claro
+- [X] Conferir que nenhuma implementação escreve nada em stdout
 
 ## 🛡️ Fase 8 — Revisão de erros e robustez
 - [ ] Erro: número incorreto de argumentos
