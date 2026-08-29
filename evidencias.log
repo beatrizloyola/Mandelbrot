@@ -1,0 +1,28 @@
+Script started on 2026-08-29 13:51:15-03:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="154" LINES="5"]
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ whoami
+[?2004lloyola
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ date
+[?2004lsáb 29 ago 2026 13:51:32 -03
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ pwd
+[?2004l/home/loyola/Documents/Mandelbrot
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ echo "es[K[KTeste de mandelbrot[K[K[K[K[K[K[K[K[K[K[K[Kas [K[K[Ke mandelbrot.h[Kc"
+[?2004lTeste de mandelbrot.c
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ make
+[?2004lgcc -Wall -Wextra -O2 -pthread -fopenmp -o mandelbrot main.c -lm
+[01m[Kmain.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kmain.c:5:15:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    5 | int main ([01;35m[Kint argc[m[K, char *argv[]){
+      |           [01;35m[K~~~~^~~~[m[K
+[01m[Kmain.c:5:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    5 | int main (int argc, [01;35m[Kchar *argv[][m[K){
+      |                     [01;35m[K~~~~~~^~~~~~[m[K
+/usr/bin/ld: /tmp/ccJrJ1Fq.o: in function `main':
+main.c:(.text.startup+0x16): undefined reference to `iterar'
+/usr/bin/ld: main.c:(.text.startup+0x41): undefined reference to `iterar'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:10: mandelbrot] Error 1
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [K]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ make
+[?2004lgcc -Wall -Wextra -O2 -pthread -fopenmp -o mandelbrot main.c mandelbrot.c -lm
+[01m[Kmain.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kmain.c:5:15:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    5 | int main ([01;35m[K

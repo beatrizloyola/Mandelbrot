@@ -10,10 +10,10 @@ Backlog incremental. Cada fase constrói sobre a anterior. Marcar `[X]` ao concl
 - [X] Mensagens de erro coerentes via stderr, programa não imprime nada em stdout no fluxo normal
 
 ## 🧮 Fase 2 — Núcleo matemático do Mandelbrot
-- [ ] Função de mapeamento pixel → ponto complexo c (região real [-2.0,1.0], imaginária [-1.5,1.5])
-- [ ] Função de iteração: z0=0, z_novo = z² + c, critério de escape (|z|>2) até max_iteracoes
-- [ ] Normalização do nº de iterações para intensidade 0–255
-- [ ] Teste isolado: comparar saída da função para poucos pontos calculados à mão
+- [X] Função de mapeamento pixel → ponto complexo c (região real [-2.0,1.0], imaginária [-1.5,1.5])
+- [X] Função de iteração: z0=0, z_novo = z² + c, critério de escape (|z|>2) até max_iteracoes
+- [X] Normalização do nº de iterações para intensidade 0–255
+- [X] Teste isolado: comparar saída da função para poucos pontos calculados à mão
 
 ## 🖼️ Fase 3 — Implementação Serial + escrita do arquivo
 - [ ] Implementação serial completa (duplo loop sobre largura x altura)
