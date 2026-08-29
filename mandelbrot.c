@@ -8,8 +8,15 @@
 #include "mandelbrot.h"
 
 void pixel_para_complexo(int x, int y, int largura, int altura, double *real, double *imag) {
-    *real = -2.0 + (x / (double)(largura - 1)) * 3.0;
-    *imag = -1.5 + (y / (double)(altura - 1)) * 3.0;
+    if (largura > 1)
+        *real = -2.0 + (x / (double)(largura - 1)) * 3.0;
+    else
+        *real = -2.0;
+
+    if (altura > 1)
+        *imag = -1.5 + (y / (double)(altura - 1)) * 3.0;
+    else
+        *imag = -1.5;
 }
 
 int iterar(double c_real, double c_imag, int max_iteracoes) {
