@@ -46,7 +46,7 @@ int main (int argc, char *argv[]){
     // Teste OpenMP
     resultado = executar_openmp((int)largura, (int)altura, (int)max_iteracoes, (int)num_threads);
     if (resultado != 0) {
-        fprintf(stderr, "Erro na execução serial\n");
+        fprintf(stderr, "Erro na execução OpenMP\n");
         return 1;
     }
 
@@ -60,7 +60,7 @@ int main (int argc, char *argv[]){
     // Teste Pthreads 2
     resultado = executar_pthreads2((int)largura, (int)altura, (int)max_iteracoes, (int)num_threads);
      if (resultado != 0) {
-        fprintf(stderr, "Erro na execução Pthreads 1\n");
+        fprintf(stderr, "Erro na execução Pthreads 2\n");
         return 1;
     }
 
