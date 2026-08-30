@@ -116,4 +116,121 @@ gcc -Wall -Wextra -O2 -pthread -fopenmp -o mandelbrot main.c mandelbrot.c -lm
 [7m./mandelbrot abc 100 500 4[27m
 [7m./mandelbrot 100 xyz 500 4[27m
 [7m./mandelbrot 100 100 abc 4[27m
-[7m./mandelbrot 100 100 500 abc[27m[A[A[A[A[A]0;loyola@loyola-dell-g15: ~/Documents/Mandel
+[7m./mandelbrot 100 100 500 abc[27m[A[A[A[A[A]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ ./mandelbrot 100 100 500
+./mandelbrot 100 100 500 4 4
+./mandelbrot abc 100 500 4
+./mandelbrot 100 xyz 500 4
+./mandelbrot 100 100 abc 4
+./mandelbrot 100 100 500 abc
+[?2004lQuantidade de argumentos inválida
+Quantidade de argumentos inválida
+Erro: largura inválida
+Erro: altura inválida
+Erro: quantidade máxima de iterações inválida
+Erro: quantidade de threads inválida
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [7m./mandelbrot -10 100 500 4[27m
+[7m./mandelbrot 100 0 500 4[27m
+[7m./mandelbrot 100 100 -5 4[27m
+[7m./mandelbrot 100 100 500 0[27m[A[A[A]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ ./mandelbrot -10 100 500 4
+./mandelbrot 100 0 500 4
+./mandelbrot 100 100 -5 4
+./mandelbrot 100 100 500 0
+[?2004lErro: largura inválida
+Erro: altura inválida
+Erro: quantidade máxima de iterações inválida
+Erro: quantidade de threads inválida
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [7m./mandelbrot 1 100 500 4[27m
+[7mcat mandelbrot_blgv_serial.pgm | head -1[27m
+[7m./mandelbrot 100 1 500 4[27m
+[7mcat mandelbrot_blgv_serial.pgm[27m
+[7m./mandelbrot 100 100 500 1[27m
+[7m./mandelbrot 10 10 500 50[27m[A[A[A[A[A]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ ./mandelbrot 1 100 500 4
+cat mandelbrot_blgv_serial.pgm | head -1
+./mandelbrot 100 1 500 4
+cat mandelbrot_blgv_serial.pgm
+./mandelbrot 100 100 500 1
+./mandelbrot 10 10 500 50
+[?2004l0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [7m./mandelbrot 300 300 1000 4[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"[27m
+
+[7m./mandelbrot 50 50 300 8[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"[27m
+[7mdiff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"[27m[A[A[A[A[A[A[A[A./mandelbrot 300 300 1000 4
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"
+
+./mandelbrot 50 50 300 8
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_openmp.pgm && echo "serial == openmp OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads1.pgm && echo "serial == pthreads1 OK"
+diff mandelbrot_blgv_serial.pgm mandelbrot_blgv_pthreads2.pgm && echo "serial == pthreads2 OK"
+[?2004lserial == openmp OK
+serial == pthreads1 OK
+serial == pthreads2 OK
+serial == openmp OK
+serial == pthreads1 OK
+serial == pthreads2 OK
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ exi[Kit
+[?2004lexit
+
+Script done on 2026-08-29 21:05:42-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-08-29 21:26:50-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="139" LINES="10"]
+[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ [7mmake clean && make && rm -f times.txt[27m
+[7mecho "TESTE1:"; ./mandelbrot 4 4 50 1 && cat mandelbrot_blgv_serial.pgm[27m
+[7mecho "expect1:"; cat Testes/teste1_serial.txt | tail -4[27m
+[7mecho "TESTE2:"; ./mandelbrot 6 6 30 3 && cat mandelbrot_blgv_serial.pgm[27m
+[7mecho "expect2:"; cat Testes/teste2_openmp.txt | tail -6[27m
+[7mecho "TESTE3:"; ./mandelbrot 10 6 40 4 && cat mandelbrot_blgv_serial.pgm[27m
+[7mecho "expect3:"; cat Testes/teste3_pthreads1.txt | tail -6[27m[A[A[A[A[A[Amake clean && make && rm -f times.txt
+echo "TESTE1:"; ./mandelbrot 4 4 50 1 && cat mandelbrot_blgv_serial.pgm
+echo "expect1:"; cat Testes/teste1_serial.txt | tail -4
+echo "TESTE2:"; ./mandelbrot 6 6 30 3 && cat mandelbrot_blgv_serial.pgm
+echo "expect2:"; cat Testes/teste2_openmp.txt | tail -6
+echo "TESTE3:"; ./mandelbrot 10 6 40 4 && cat mandelbrot_blgv_serial.pgm
+echo "expect3:"; cat Testes/teste3_pthreads1.txt | tail -6
+[?2004lrm -f mandelbrot *.o *.pgm times.txt
+gcc -Wall -Wextra -O2 -pthread -fopenmp -o mandelbrot main.c mandelbrot.c -lm
+TESTE1:
+5 10 10 10
+5 15 30 25
+255 255 255 255
+5 15 30 25
+expect1:
+5 10 10 10
+5 15 30 25
+255 255 255 255
+5 15 30 25TESTE2:
+8 8 17 17 17 17
+8 17 25 34 255 17
+8 25 42 255 255 42
+255 255 255 255 255 42
+8 25 42 255 255 42
+8 17 25 34 255 17
+expect2:
+8 8 17 17 17 17
+8 17 25 34 255 17
+8 25 42 255 255 42
+255 255 255 255 255 42
+8 25 42 255 255 42
+8 17 25 34 255 17TESTE3:
+6 6 6 12 12 12 12 12 12 12
+6 12 19 19 19 25 44 25 19 12
+6 19 19 31 38 255 255 255 44 19
+255 255 255 255 255 255 255 255 44 19
+6 19 19 31 38 255 255 255 44 19
+6 12 19 19 19 25 44 25 19 12
+expect3:
+6 6 6 12 12 12 12 12 12 12
+6 12 19 19 19 25 44 25 19 12
+6 19 19 31 38 255 255 255 44 19
+255 255 255 255 255 255 255 255 44 19
+6 19 19 31 38 255 255 255 44 19
+6 12 19 19 19 25 44 25 19 12[?2004h]0;loyola@loyola-dell-g15: ~/Documents/Mandelbrot[01;32mloyola@loyola-dell-g15[00m:[01;34m~/Documents/Mandelbrot[00m$ exit
+[?2004lexit
+
+Script done on 2026-08-29 21:26:56-03:00 [COMMAND_EXIT_CODE="0"]
