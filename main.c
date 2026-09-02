@@ -34,6 +34,8 @@ int main (int argc, char *argv[]){
         exit(1);
     }
     
+    remove("times.txt");
+
     int resultado;
 
     // Teste Serial
